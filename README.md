@@ -29,7 +29,8 @@ Follow these simple steps to use the DFS Article Sentiment Analyzer:
 3. Open the `dfs_test.txt` file with a text editor of your choice.
 4. Copy and paste the content of your daily fantasy sports article into the `dfs_test.txt` file.
 5. Save the `dfs_test.txt` file.
-6. Run the main program: `python dfs_article_sentiment_analyzer.py`
+6. The first time you run the program, ensure that the `nltk.download` lines are uncommented in the `dfs_article_sentiment_analyzer.py` script to download the necessary resources. You can comment these lines out during subsequent runs.
+7. Run the main program: `python dfs_article_sentiment_analyzer.py`
 
 After running the program, you will find the analysis results in a newly generated CSV file named `dfs_test3.csv`. Open this file to view the extracted named entities and their sentiment scores.
 
