@@ -1,9 +1,10 @@
 import nltk
 import pandas as pd
-import textract
+#import textract
 from nltk.tokenize import word_tokenize, sent_tokenize
 from nltk.sentiment import SentimentIntensityAnalyzer
 from nltk import ne_chunk, pos_tag
+import chardet
 
 # Download the necessary resources
 #nltk.download('punkt')
@@ -14,7 +15,12 @@ from nltk import ne_chunk, pos_tag
 
 # Load the article text from a file
 input_file = 'dfs_test.txt'
-article_text = textract.process(input_file).decode('utf-8')
+
+# Detect the file encoding and read its content
+with open(input_file, 'rb') as file:
+    raw_data = file.read()
+    detected_encoding = chardet.detect(raw_data)['encoding']
+    article_text = raw_data.decode(detected_encoding, errors='replace')
 
 # Tokenize the article into sentences and words
 sentences = sent_tokenize(article_text)
